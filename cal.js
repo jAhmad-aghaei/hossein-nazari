@@ -1,60 +1,31 @@
-// Import the readline module
-const readline = require('readline');
-
-// Create an interface for input and output
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-// Function to perform calculations
-function calculate(num1, operator, num2) {
+// Basic Calculator function
+function calculator(num1, operator, num2) {
+    let result;
     switch (operator) {
         case '+':
-            return num1 + num2;
+            result = num1 + num2;
+            break;
         case '-':
-            return num1 - num2;
+            result = num1 - num2;
+            break;
         case '*':
-            return num1 * num2;
+            result = num1 * num2;
+            break;
         case '/':
-            return num2 !== 0 ? num1 / num2 : "Error! Division by zero.";
+            result = num2 !== 0 ? num1 / num2 : 'Cannot divide by zero';
+            break;
         default:
-            return "Invalid operator!";
+            result = 'Invalid operator';
     }
+    return result;
 }
 
-// Function to start the calculator
-function startCalculator() {
-    rl.question("Enter the first number: ", (firstInput) => {
-        const num1 = parseFloat(firstInput);
-        if (isNaN(num1)) {
-            console.log("Invalid number!");
-            return startCalculator(); // Restart if invalid input
-        }
+// Example usage:
+const num1 = 10;
+const num2 = 5;
 
-        rl.question("Enter an operator (+, -, *, /): ", (operator) => {
-            if (!['+', '-', '*', '/'].includes(operator)) {
-                console.log("Invalid operator!");
-                return startCalculator(); // Restart if invalid input
-            }
-
-            rl.question("Enter the second number: ", (secondInput) => {
-                const num2 = parseFloat(secondInput);
-                if (isNaN(num2)) {
-                    console.log("Invalid number!");
-                    return startCalculator(); // Restart if invalid input
-                }
-
-                // Perform the calculation and display the result
-                const result = calculate(num1, operator, num2);
-                console.log(`Result: ${num1} ${operator} ${num2} = ${result}`);
-
-                // Close the interface
-                rl.close();
-            });
-        });
-    });
-}
-
-// Start the calculator
-startCalculator();
+// Perform calculations
+console.log("Addition:", calculator(num1, '+', num2));       // Output: 15
+console.log("Subtraction:", calculator(num1, '-', num2));    // Output: 5
+console.log("Multiplication:", calculator(num1, '*', num2)); // Output: 50
+console.log("Division:", calculator(num1, '/', num2));       // Output: 2
