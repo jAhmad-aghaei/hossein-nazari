@@ -1,4 +1,3 @@
-// Basic Calculator function
 function calculator(num1, operator, num2) {
     let result;
     switch (operator) {
@@ -25,7 +24,7 @@ const num1 = 10;
 const num2 = 5;
 
 // Perform calculations
-console.log("Addition:", calculator(num1, '+', num2));       // Output: 15
-console.log("Subtraction:", calculator(num1, '-', num2));    // Output: 5
-console.log("Multiplication:", calculator(num1, '*', num2)); // Output: 50
-console.log("Division:", calculator(num1, '/', num2));       // Output: 2
+console.log("Addition:", calculator(num1, '+', num2));       
+console.log("Subtraction:", calculator(num1, '-', num2));    
+console.log("Multiplication:", calculator(num1, '+', num2)); 
+console.log("Division:", calculator(num1, '/', num2));       
